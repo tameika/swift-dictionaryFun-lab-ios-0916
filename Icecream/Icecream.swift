@@ -176,24 +176,37 @@ class Icecream {
     
     // 9.
     
-    
     func attendeeList() -> String {
+        
         
         let allNames = Array(favoriteFlavorsOfIceCream.keys).sorted()
         
         var everyone: String = ""
         
+        var count = 0
+        
+        
         for name in allNames {
             
-            let flavor = favoriteFlavorsOfIceCream[name]!
+            let flavor = favoriteFlavorsOfIceCream[name]
             
-            print("\(name) likes \(flavor)")
-            
-            
-             everyone.append("\(name) likes \(flavor)\n")
-            
+            if let flavor = flavor {
+                
+                count += 1
+                
+                if count < allNames.count {
+                    
+                    everyone.append("\(name) likes \(flavor)\n")
+                    
+                } else if count == allNames.count {
+                    
+                    everyone.append("\(name) likes \(flavor)")
+                    
+                }
+            }
         }
         
+        print(everyone)
         return everyone
         
     }
