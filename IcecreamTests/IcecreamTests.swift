@@ -66,22 +66,22 @@ class IcecreamTests: XCTestCase {
     
     // 3.
     func testCountForNaturalVanilla() {
-        let actualCount = testIcecream.count(forflavor: "Natural Vanilla")
+        let actualCount = testIcecream.count(forFlavor: "Natural Vanilla")
         XCTAssertEqual(actualCount, 3, "Only 3 people like Natural Vanilla.")
     }
     
     func testCountForMexicanChocolate() {
-        let actualCount = testIcecream.count(forflavor: "Mexican Chocolate")
+        let actualCount = testIcecream.count(forFlavor: "Mexican Chocolate")
         XCTAssertEqual(actualCount, 2, "Only 2 people like Natural Vanilla.")
     }
     
     func testCountForNonExistentFlavor() {
-        let actualCount = testIcecream.count(forflavor: "Blackberry")
+        let actualCount = testIcecream.count(forFlavor: "Blackberry")
         XCTAssertEqual(actualCount, 0, "0 people like Blackberry.")
     }
     
     func testCountForPeanutButterandChocolate() {
-        let actualCount = testIcecream.count(forflavor: "Peanut Butter and Chocolate")
+        let actualCount = testIcecream.count(forFlavor: "Peanut Butter and Chocolate")
         XCTAssertEqual(actualCount, 1, "Only 1 person likes Peanut Butter and Chocolate.")
     }
     
@@ -101,7 +101,7 @@ class IcecreamTests: XCTestCase {
     
     // 5.
     func testReplaceFlavorForJoe() {
-        let flavorIsChanged = testIcecream.replace(flavor: "Berry", forPerson: "Joe")
+        let flavorIsChanged = testIcecream.replace(flavor: "Berry", person: "Joe")
         XCTAssertTrue(flavorIsChanged, "This should have returned true, Joe's flavor should also have been updated.")
         
         let flavor = testIcecream.flavor(forPerson: "Joe")
@@ -109,7 +109,7 @@ class IcecreamTests: XCTestCase {
     }
     
     func testReplaceFlavorForNonExistentPerson() {
-        let flavorIsChanged = testIcecream.replace(flavor: "Strawberry", forPerson: "Jon Snow")
+        let flavorIsChanged = testIcecream.replace(flavor: "Strawberry", person: "Jon Snow")
         XCTAssertFalse(flavorIsChanged, "This should have returned false, Jon Snow doesn't exist.")
         
         let flavor = testIcecream.flavor(forPerson: "Jon Snow")
@@ -141,7 +141,7 @@ class IcecreamTests: XCTestCase {
     
     // 8.
     func testAddPersonWithTravis() {
-        let isAddedToParty = testIcecream.add(person: "Travis", withFlavor: "Strawberry")
+        let isAddedToParty = testIcecream.add(person: "Travis", flavor: "Strawberry")
         XCTAssertTrue(isAddedToParty, "Travis is new to the party, the function should return true.")
         
         let flavor = testIcecream.flavor(forPerson: "Travis")
